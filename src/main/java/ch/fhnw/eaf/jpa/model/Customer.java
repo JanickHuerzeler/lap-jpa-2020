@@ -1,8 +1,10 @@
 package ch.fhnw.eaf.jpa.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
@@ -10,13 +12,13 @@ import javax.persistence.OneToOne;
 public class Customer {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String name;
 
-	//@OneToOne(fetch = FetchType.LAZY)
-	@OneToOne(fetch = FetchType.EAGER) // default
+	// @OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST }) // default
 	private Address address;
 
 	private int age;

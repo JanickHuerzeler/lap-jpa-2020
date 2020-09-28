@@ -2,6 +2,7 @@ package ch.fhnw.eaf.jpa.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
@@ -9,13 +10,13 @@ import javax.persistence.OneToOne;
 public class Address {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String street;
 	private String city;
 
-	@OneToOne
+	@OneToOne(mappedBy = "address")
 	private Customer customer;
 
 	protected Address() {

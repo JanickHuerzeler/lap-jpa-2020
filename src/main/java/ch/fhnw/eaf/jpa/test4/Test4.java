@@ -27,11 +27,13 @@ public class Test4 implements CommandLineRunner {
 	@Transactional
 	public void run(String... args) throws Exception {
 
+		// Test 3: Nur noch 1 FK, auf Customer
+
 		Customer c = new Customer("Gosling", 55);
 		Address a = new Address("Infinite Loop 1", "Cupertino");
 		c.setAddress(a);
 
-		// em.persist(a);
+		//em.persist(a); //ja, da transient. Aber mit cascade = { CascadeType.PERSIST } in Customer.java nicht mehr.
 		em.persist(c);
 
 		System.out.println("done");
