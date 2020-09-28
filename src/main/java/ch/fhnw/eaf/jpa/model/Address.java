@@ -3,6 +3,7 @@ package ch.fhnw.eaf.jpa.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
@@ -13,6 +14,9 @@ public class Address {
 
 	private String street;
 	private String city;
+
+	@OneToOne
+	private Customer customer;
 
 	protected Address() {
 	}

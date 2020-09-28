@@ -27,5 +27,8 @@ public class Test3 implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		System.out.println("done");
 		System.out.println("inspect now the generated schema using the h2 console");
+
+		// a) FK: In both tables
+		// b) 
 	}
 }
