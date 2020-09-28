@@ -35,6 +35,9 @@ public class Test7 implements CommandLineRunner {
 		System.out.println(c.getId());
 
 		System.out.println("done");
+
+		// a) PKs: 1, 2, 33, 34, 35, 36, 37, 38
+		// b) PKs: 1, 2, 3, 4, 5, 6 (Neue Tablle "HYBERNATE_SEQUENCES" mit column NEXT_VAL)
 	}
 
 }
