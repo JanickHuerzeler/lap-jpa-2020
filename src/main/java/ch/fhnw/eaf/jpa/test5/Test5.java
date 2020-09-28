@@ -26,6 +26,14 @@ public class Test5 implements CommandLineRunner {
 	@Override
 	@Transactional
 	public void run(String... args) throws Exception {
+
+		// if (1 == 1)
+		// return;
+		// a) DB-Schema: Zwischentabelle CUSTOMER_ORDERS mit FK auf Customer_ID, aber
+		// keinen auf Order_ID!
+		// b) Assoziation anders: Ja, Definition auf Order statt Customer, oder als
+		// bidirektional
+
 		Customer c1 = new Customer("Haller", 52);
 		Customer c2 = new Customer("Schneider", 66);
 
@@ -36,7 +44,7 @@ public class Test5 implements CommandLineRunner {
 		c1.addOrder(o1);
 		c1.addOrder(o2);
 
-//		c2.addOrder(o1);
+		c2.addOrder(o1); // c): Definition auf Customer -> Unique Key violation
 		c2.addOrder(o3);
 
 		em.persist(c1);

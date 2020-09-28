@@ -1,11 +1,15 @@
 package ch.fhnw.eaf.jpa.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -22,6 +26,9 @@ public class Customer {
 	private Address address;
 
 	private int age;
+
+	@OneToMany(cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
+	private List<Order> orders;
 
 	protected Customer() {
 	}
@@ -68,6 +75,10 @@ public class Customer {
 	}
 
 	public void addOrder(Order order) {
+		if (this.orders == null) {
+			orders = new ArrayList<>();
+		}
+		orders.add(order);
 	}
 
 }
