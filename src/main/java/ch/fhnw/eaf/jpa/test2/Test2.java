@@ -28,6 +28,10 @@ public class Test2 implements CommandLineRunner {
 
 		Customer c = em.find(Customer.class, 1);
 
+		System.out.println(c.getAddress().getClass());
+		// LAZY: class ch.fhnw.eaf.jpa.model.Address$HibernateProxy$ZP2R9Why
+		// EAGER: class ch.fhnw.eaf.jpa.model.Address
+
 		c.setAge(55);
 		c.getAddress().setStreet("Bahnhofstrasse 5");
 
@@ -36,6 +40,8 @@ public class Test2 implements CommandLineRunner {
 			c.getAddress().getStreet();
 		}
 		System.out.println(System.currentTimeMillis() - start);
+		// Lazy: 124ms
+		// Eager: 6ms
 
 		System.out.println("done");
 		System.exit(0);
