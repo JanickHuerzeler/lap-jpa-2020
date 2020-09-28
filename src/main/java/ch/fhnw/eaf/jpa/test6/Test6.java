@@ -36,7 +36,8 @@ public class Test6 implements CommandLineRunner {
 		Customer c = em.find(Customer.class, 1);
 		c.getAddress().setCity("Basel");
 
-//		em.flush();
+		em.flush();
+		System.out.println("flush>");
 
 		TypedQuery<String> q = em.createQuery("select a.city from Address a", String.class);
 		List<String> cities = q.getResultList();
@@ -46,5 +47,21 @@ public class Test6 implements CommandLineRunner {
 
 		System.out.println("done");
 		System.exit(0);
+
+		/*
+		 * Default> AUTO, Current> COMMIT, Windisch
+		 */
+
+		/*
+		 * Default> AUTO, Current> AUTO, Basel
+		 */
+
+		/*
+		 * Default> AUTO, Current> AUTO, flush>, Basel
+		 */
+
+		/*
+		 * Default> AUTO, Current> COMMIT, flush>, Basel
+		 */
 	}
 }
