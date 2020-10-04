@@ -16,19 +16,21 @@ import javax.persistence.OneToOne;
 public class Customer {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private String name;
 
 	// @OneToOne(fetch = FetchType.LAZY)
-	// @OneToOne(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST }) // default
+	// @OneToOne(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST }) //
+	// default
 	@OneToOne
 	private Address address;
 
 	private int age;
 
-	@OneToMany(cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
+	// @OneToMany(cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
+	@OneToMany(cascade = { CascadeType.PERSIST })
 	private List<Order> orders;
 
 	protected Customer() {
