@@ -16,7 +16,8 @@ public class Address {
 	private String street;
 	private String city;
 
-	@OneToOne(mappedBy = "address")
+	//@OneToOne(mappedBy = "address")
+	@OneToOne
 	private Customer customer;
 
 	protected Address() {

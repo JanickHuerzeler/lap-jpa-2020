@@ -22,7 +22,8 @@ public class Customer {
 	private String name;
 
 	// @OneToOne(fetch = FetchType.LAZY)
-	@OneToOne(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST }) // default
+	// @OneToOne(fetch = FetchType.EAGER, cascade = { CascadeType.PERSIST }) // default
+	@OneToOne
 	private Address address;
 
 	private int age;
