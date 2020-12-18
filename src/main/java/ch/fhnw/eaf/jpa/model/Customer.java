@@ -30,7 +30,7 @@ public class Customer {
 	private int age;
 
 	// @OneToMany(cascade = { CascadeType.REMOVE, CascadeType.PERSIST })
-	@OneToMany(cascade = { CascadeType.PERSIST })
+	@OneToMany(cascade = { CascadeType.PERSIST }, mappedBy = "customer")
 	private List<Order> orders;
 
 	protected Customer() {
